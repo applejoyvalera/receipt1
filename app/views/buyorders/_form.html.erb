@@ -1,0 +1,9 @@
+<%= simple_form_for @buyorder do |t| %>
+
+<%= t.input :data %>
+<%= t.association :customer %>
+<%= t.association :item %>
+<%= t.input :quantity%>
+<%= t.submit %>
+<%= link_to "Back", buyorders_path, class: "btn btn-default" %>
+<% end %>

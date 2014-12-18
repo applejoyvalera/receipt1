@@ -1,0 +1,66 @@
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div claa="col-md-12 text-center">
+<% total = 0 %>
+	<h1>Receipt</h1>
+	</div>
+	<div class="col-md-6 text-right">
+	<h4> Date: <%= @buyorder.data %> </h4>
+	</div>
+	<div class="clearfix"></div>
+	<div class="col-md-12">
+		<h5> Name: <%= @buyorder.customer %> </h5>
+		</div>
+		<% @customers.each do|t| %>
+			<% if t.id == @buyorder.customer_id %>
+			<div class="col-md-6">
+				<h5>Address: <%= t.address %> </h5>
+				</div>
+				<div class="col-md-6">
+				<h5>Business: <%= t.business %></h5>
+				</div>
+				<% end %>
+			<% end %>
+			</div>
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th>Unit</th>
+							<th>Item</th>
+							<th>Quantity</th>
+							<th>Price</th>
+						</tr>
+						<% @buyorders.each do |r| %>
+							<% if @buyorder.customer_id == r.customer_id && @buyorder.data == r.data %>
+							<tr>
+								<td><%@items.each do |z| %>
+									<% if z.id == r.item_id %>
+										<%= z.unit %>
+										<% end %>	
+									<% end %></td>
+								<td><%= r.item %></td>
+								<td><%= r.quantity %></td>
+								<td>								
+									<%@items.each do |z| %>
+									<% if z.id == r.item_id %>
+										<%= amount = z.price * r.quantity %>
+										<% total = total + amount %>
+										<% end %>	
+									<% end %>
+								</td>
+							</tr>
+						<% end %>
+					<%end %>
+					<tr>
+						<th colspan=3>Total</th>
+						<th><%= total %></th>
+					</tr>	
+				</tbody>
+			</table>
+		</div>
+	<div class="clearfix"></div>
+	<%= link_to "New Order", new_buyorder_path, class: "btn btn-default" %>
+	<%= link_to "Back", buyorder_path, class: "btn btn-default" %>
+	</div>

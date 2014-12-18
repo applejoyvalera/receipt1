@@ -1,0 +1,25 @@
+<h1>Orders</h1>
+<%= link_to "New Order", new_buyorder_path %>
+
+<table style="border:1px solid black; width= 50% ">
+	<tr>
+		<th>Date</th>
+		<th>Name</th>
+		<th>Itemname</th>
+		<th>Quantity</th>
+	</tr>
+	<% @buyorders.each do |t|%>
+	<tr>
+		<td> <%= t.data %> </td>
+		<td> <%= t.customer %> </td>
+		<td> <%= t.item %> </td>
+		<td> <%= t.quantity %> </td>
+		<td>
+			
+			<%= link_to "Edit", edit_buyorder_path(t.id) %>
+			<%= link_to "Delete", buyorder_path(t.id), :method => :delete %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
