@@ -1,7 +1,7 @@
 ActiveAdmin.register Customer do 
 	controller do
-	def permitted_params
-		params.permit!
+		def permitted_params
+			params.permit!
 		end
 	end
 
@@ -24,12 +24,5 @@ ActiveAdmin.register Customer do
 			t.inputs :business
 		end
 		t.actions
-	end
-	show do |ad|
-		attributes_table do
-			row :name
-			row :address
-			row :business
-		end
 	end
 end
