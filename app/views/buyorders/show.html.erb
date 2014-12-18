@@ -1,12 +1,12 @@
 <div class="container">
 <div class="row">
 <div class="col-md-6">
-<div claa="col-md-12 text-center">
+<div class="col-md-12 text-center">
 <% total = 0 %>
 	<h1>Receipt</h1>
 	</div>
-	<div class="col-md-6 text-right">
-	<h4> Date: <%= @buyorder.data %> </h4>
+	<div class="col-md-6">
+	<h5> Date: <%= @buyorder.data %> </h5>
 	</div>
 	<div class="clearfix"></div>
 	<div class="col-md-12">
@@ -62,5 +62,5 @@
 		</div>
 	<div class="clearfix"></div>
 	<%= link_to "New Order", new_buyorder_path, class: "btn btn-default" %>
-	<%= link_to "Back", buyorder_path, class: "btn btn-default" %>
+	<%= link_to "Back", buyorders_path, class: "btn btn-default" %>
 	</div>

@@ -16,3 +16,4 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'responders'
 gem 'simple_form'
+gem 'bootstrap-sass'
